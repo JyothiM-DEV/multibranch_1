@@ -15,6 +15,7 @@ node('master')
     stage('ContinuousTesting')
     {
         git 'https://github.com/intelliqittrainings/FunctionalTesting.git'
+	sh label: '', script: 'java -jar /home/ubuntu/.jenkins/workspace/m1_jyothi/testing.jar'
     }	
     
 }
