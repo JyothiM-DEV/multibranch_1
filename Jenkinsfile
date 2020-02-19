@@ -8,5 +8,9 @@ node('master')
     {
 	sh label: '', script: 'mvn package'
     }
+     stage('continous deploy')
+    {
+        sh label: '', script: 'scp /home/ubuntu/.jenkins/workspace/m1_jyothi/webapp/target/webapp.war ubuntu@172.31.5.129:/var/lib/tomcat8/webapps/testapp1.war'
+    }
     
 }
