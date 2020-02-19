@@ -16,6 +16,10 @@ node('master')
     {
         git 'https://github.com/intelliqittrainings/FunctionalTesting.git'
 	sh label: '', script: 'java -jar /home/ubuntu/.jenkins/workspace/m1_jyothi/testing.jar'
-    }	
+    }
+    stage('ContinuousDelivery')
+    {
+       sh label: '', script: 'scp /home/ubuntu/.jenkins/workspace/m1_jyothi/webapp/target/webapp.war ubuntu@172.31.12.25:/var/lib/tomcat8/webapps/jyothiprodapp.war'
+    }
     
 }
